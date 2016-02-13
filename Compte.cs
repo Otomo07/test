@@ -41,7 +41,8 @@ namespace WindowsFormsApplication1
         {
             pass_compt = pass;
         }
-        public string AffCompt()
+
+        public override string ToString()
         {
             return (numCompte + " " + nom_compte + " " + pass_compt);
         }

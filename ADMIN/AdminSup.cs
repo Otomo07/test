@@ -38,7 +38,7 @@ namespace WindowsFormsApplication1
             compte = m1.getCompte();
             foreach (Compte Uncompte in compte)
             {
-                listBox1.Items.Add(Uncompte.AffCompt());
+                listBox1.Items.Add(Uncompte);
             }
         }
 
@@ -55,9 +55,7 @@ namespace WindowsFormsApplication1
 
         private void Modifier_Click(object sender, EventArgs e)
         {
-            int rang = listBox1.SelectedItems.Count;
-            Compte c1 = new Compte(0,"","");
-            c1.SetNum(rang);
+            Compte compteAmodifier = (Compte)listBox1.SelectedItem;
 
         }
 

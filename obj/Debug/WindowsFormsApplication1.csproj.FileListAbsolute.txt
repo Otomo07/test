@@ -11,3 +11,16 @@ C:\Users\Da\Desktop\Cours\1Sio\SIO4\a tier\WindowsFormsApplication1\WindowsForms
 C:\Users\Da\Desktop\Cours\1Sio\SIO4\a tier\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Account.resources
 C:\Users\Da\Desktop\Cours\1Sio\SIO4\a tier\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Admin.resources
 C:\Users\Da\Desktop\Cours\1Sio\SIO4\a tier\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AdminSup.resources
+C:\Users\Da\Desktop\Cours\Git\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\Da\Desktop\Cours\Git\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\Da\Desktop\Cours\Git\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\Da\Desktop\Cours\Git\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\Da\Desktop\Cours\Git\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\Da\Desktop\Cours\Git\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\Da\Desktop\Cours\Git\obj\Debug\WindowsFormsApplication1.Account.resources
+C:\Users\Da\Desktop\Cours\Git\obj\Debug\WindowsFormsApplication1.Admin.resources
+C:\Users\Da\Desktop\Cours\Git\obj\Debug\WindowsFormsApplication1.AdminSup.resources
+C:\Users\Da\Desktop\Cours\Git\obj\Debug\WindowsFormsApplication1.CreatCompte.resources
+C:\Users\Da\Desktop\Cours\Git\obj\Debug\WindowsFormsApplication1.main.resources
+C:\Users\Da\Desktop\Cours\Git\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Da\Desktop\Cours\Git\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
