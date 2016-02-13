@@ -16,7 +16,7 @@ namespace WindowsFormsApplication1
 {
     public partial class main : Form
     {
-        public  string currentPseudo;
+        public static string currentPseudo;
         public static int i = 0;
         public static List<Compte> compte = new List<Compte>();
         public main()
@@ -131,7 +131,7 @@ namespace WindowsFormsApplication1
             }
             return 1;
         }
-        public string GetPseudo ()
+        public string GetPseudo()
         {
             return currentPseudo;
         }

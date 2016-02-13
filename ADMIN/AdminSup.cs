@@ -10,8 +10,10 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
+    
     public partial class AdminSup : Form
     {
+        public static Compte compteAmodifier = new Compte(0, "", "");
         private static main monMain = new main();
         private List<Compte> compte = new List<Compte>();
 
@@ -55,7 +57,10 @@ namespace WindowsFormsApplication1
 
         private void Modifier_Click(object sender, EventArgs e)
         {
-            Compte compteAmodifier = (Compte)listBox1.SelectedItem;
+            compteAmodifier = (Compte)listBox1.SelectedItem;
+            System.Threading.Thread monthread = new System.Threading.Thread(new System.Threading.ThreadStart(AdminModif));
+            monthread.Start();
+            this.Close();
 
         }
 
@@ -73,6 +78,14 @@ namespace WindowsFormsApplication1
         private void RetourMain()
         {
             Application.Run(new main());
+        }
+        public Compte GetcompteAmodifier()
+        {
+            return compteAmodifier;
+        }
+        private void AdminModif()
+        {
+            Application.Run(new AdminModifAccount());
         }
     }
 }
