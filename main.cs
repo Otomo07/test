@@ -11,6 +11,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Threading;
+using System.IO;
 
 namespace WindowsFormsApplication1
 {
@@ -22,13 +23,16 @@ namespace WindowsFormsApplication1
         public main()
         {
             InitializeComponent();
+            LoadPerso();
+
         }
         public void Setcompte(string Login, string MDP)
         {
             Compte c1 = new Compte(i, Login, MDP);
             compte.Add(c1);
-            System.IO.File.WriteAllText(@"C:\Users\Da\Desktop\Cours\1Sio\SIO4\a tier\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Compte.txt", i+" "+ Login +" "+ MDP);
+            File.AppendAllText(@"C:\Users\Da\Desktop\Cours\Git\bin\Debug\Compte.txt", i + " " + Login + " " + MDP+ Environment.NewLine);
             i++;
+            
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -92,7 +96,6 @@ namespace WindowsFormsApplication1
         {
             foreach (Compte Uncompte in compte)
             {
-                MessageBox.Show(Uncompte.GetNom());
                 if (login == Uncompte.GetNom())
                 {
                     if (mdp == Uncompte.GetPass())
@@ -123,7 +126,6 @@ namespace WindowsFormsApplication1
         {
             foreach(Compte Uncompte in compte)
             {
-                MessageBox.Show(Uncompte.GetNom());
                     if (Pseudo == Uncompte.GetNom())
                     {
                         return -1;
@@ -160,6 +162,24 @@ namespace WindowsFormsApplication1
                     Uncompte.SetNom(Login);
                     Uncompte.SetPass(MDP);
                 }
+            }
+        }
+        public void LoadPerso()
+        {
+            compte.Clear();
+            char sep = ' ';
+            try
+            {
+                foreach (string line in File.ReadAllLines(@"C:\Users\Da\Desktop\Cours\Git\bin\Debug\Compte.txt"))
+                {
+                    String[] champs = line.Split(sep);
+                    Compte c1 = new Compte(int.Parse(champs[0]), champs[1], champs[2]);
+                    compte.Add(c1);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(" l'erreur suivante s'est  produite : " + e + "pour le chargement des comptes");
             }
         }
 
