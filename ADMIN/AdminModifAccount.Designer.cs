@@ -88,6 +88,7 @@
             this.Retour.TabIndex = 5;
             this.Retour.Text = "Retour";
             this.Retour.UseVisualStyleBackColor = true;
+            this.Retour.Click += new System.EventHandler(this.Retour_Click);
             // 
             // AdminModifAccount
             // 

@@ -151,7 +151,17 @@ namespace WindowsFormsApplication1
         {
                 return compte;
         }
-        
+        public void ModifAcc(int num, string Login, string MDP)
+        {
+            foreach(Compte Uncompte in compte)
+            {
+                if(num == Uncompte.GetNum())
+                {
+                    Uncompte.SetNom(Login);
+                    Uncompte.SetPass(MDP);
+                }
+            }
+        }
 
     }
 }
