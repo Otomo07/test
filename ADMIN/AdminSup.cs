@@ -103,5 +103,17 @@ namespace WindowsFormsApplication1
             sr2.Write(texte);
             sr2.Close();
         }
+
+        private void Ajouter_Click(object sender, EventArgs e)
+        {
+            System.Threading.Thread monthread = new System.Threading.Thread(new System.Threading.ThreadStart(Ajout));
+            monthread.Start();
+            this.Close();
+            LoadPerso();
+        }
+        private void Ajout()
+        {
+            Application.Run(new CreatCompte());
+        }
     }
 }

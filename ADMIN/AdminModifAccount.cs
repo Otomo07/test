@@ -22,23 +22,16 @@ namespace WindowsFormsApplication1
             Password.Text = compteaModif.GetPass();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             Compte compteaModif = admin.GetcompteAmodifier();
             string pseudo = Compte.Text;
             string mdp = Password.Text;
-            int Ppseudo = Maliste.AccountChecker(pseudo);
-            if (Ppseudo == -1)
-            {
-                MessageBox.Show("Votre Pseudo existe deja !", "Erreur02", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                Maliste.ModifAcc(compteaModif.GetNum(),pseudo, mdp);
-                System.Threading.Thread monthread = new System.Threading.Thread(new System.Threading.ThreadStart(AdminSupr));
-                monthread.Start();
-                this.Close();
-            }
+            Maliste.modifierLigne(@"C:\Users\Da\Desktop\Cours\Git\bin\Debug\Compte.txt",compteaModif.GetNum()+" "+compteaModif.GetNom()+" "+compteaModif.GetPass(),compteaModif.GetNum()+" "+pseudo+" "+mdp);
+            System.Threading.Thread monthread = new System.Threading.Thread(new System.Threading.ThreadStart(AdminSupr));
+            monthread.Start();
+            this.Close();
+            
         }
 
         private void Compte_TextChanged(object sender, EventArgs e)

@@ -33,6 +33,7 @@
             this.Supprimer = new System.Windows.Forms.Button();
             this.Modifier = new System.Windows.Forms.Button();
             this.Retour = new System.Windows.Forms.Button();
+            this.Ajouter = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox1
@@ -84,11 +85,22 @@
             this.Retour.UseVisualStyleBackColor = true;
             this.Retour.Click += new System.EventHandler(this.Retour_Click);
             // 
+            // Ajouter
+            // 
+            this.Ajouter.Location = new System.Drawing.Point(266, 165);
+            this.Ajouter.Name = "Ajouter";
+            this.Ajouter.Size = new System.Drawing.Size(75, 23);
+            this.Ajouter.TabIndex = 5;
+            this.Ajouter.Text = "Ajouter";
+            this.Ajouter.UseVisualStyleBackColor = true;
+            this.Ajouter.Click += new System.EventHandler(this.Ajouter_Click);
+            // 
             // AdminSup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 262);
+            this.Controls.Add(this.Ajouter);
             this.Controls.Add(this.Retour);
             this.Controls.Add(this.Modifier);
             this.Controls.Add(this.Supprimer);
@@ -108,5 +120,6 @@
         private System.Windows.Forms.Button Supprimer;
         private System.Windows.Forms.Button Modifier;
         private System.Windows.Forms.Button Retour;
+        private System.Windows.Forms.Button Ajouter;
     }
 }

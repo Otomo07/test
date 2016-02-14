@@ -18,20 +18,19 @@ namespace WindowsFormsApplication1
     public partial class main : Form
     {
         public static string currentPseudo;
-        public static int i = 0;
         public static List<Compte> compte = new List<Compte>();
         public main()
         {
             InitializeComponent();
             LoadPerso();
-
         }
         public void Setcompte(string Login, string MDP)
         {
+            int i = NumCompte() + 1;
             Compte c1 = new Compte(i, Login, MDP);
             compte.Add(c1);
             File.AppendAllText(@"C:\Users\Da\Desktop\Cours\Git\bin\Debug\Compte.txt", i + " " + Login + " " + MDP+ Environment.NewLine);
-            i++;
+            
             
         }
         private void Form1_Load(object sender, EventArgs e)
@@ -155,14 +154,31 @@ namespace WindowsFormsApplication1
         }
         public void ModifAcc(int num, string Login, string MDP)
         {
-            foreach(Compte Uncompte in compte)
+            
+        }
+        public void modifierLigne(string path, string ligneToModif, string ligneFinale)
+        {
+            string texteFinal = null;
+            StreamReader sr = new StreamReader(path);
+            string ligneEnCoursDeLecture = null; 
+            while ((sr.Peek() != -1))
             {
-                if(num == Uncompte.GetNum())
+                ligneEnCoursDeLecture = sr.ReadLine();
+                if ((ligneEnCoursDeLecture == ligneToModif))
                 {
-                    Uncompte.SetNom(Login);
-                    Uncompte.SetPass(MDP);
+                    texteFinal = (texteFinal
+                                + (ligneFinale));
+                }
+                else
+                {
+                    texteFinal = (texteFinal
+                                + (ligneEnCoursDeLecture + "\r\n"));
                 }
             }
+            sr.Close();
+            StreamWriter sr2 = new StreamWriter(path);
+            sr2.WriteLine(texteFinal);
+            sr2.Close();
         }
         public void LoadPerso()
         {
@@ -182,6 +198,9 @@ namespace WindowsFormsApplication1
                 MessageBox.Show(" l'erreur suivante s'est  produite : " + e + "pour le chargement des comptes");
             }
         }
-
+        private static int NumCompte()
+        {
+            return compte.Last().GetNum();
+        }
     }
 }
