@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace WindowsFormsApplication1
 {
@@ -46,13 +47,8 @@ namespace WindowsFormsApplication1
 
         private void Supprimer_Click(object sender, EventArgs e)
         {
-             int rang = listBox1.SelectedItems.Count;
-             if (rang == -1)
-            {
-                MessageBox.Show("Aucun compte selectionné", "erreur 04", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-             compte.RemoveAt(rang-1);
-             listBox1.Items.Remove(listBox1.SelectedItem);
+            supprimerLigne(@"C:\Users\Da\Desktop\Cours\Git\bin\Debug\Compte.txt", listBox1.SelectedItem.ToString());
+            LoadPerso();
         }
 
         private void Modifier_Click(object sender, EventArgs e)
@@ -86,6 +82,26 @@ namespace WindowsFormsApplication1
         private void AdminModif()
         {
             Application.Run(new AdminModifAccount());
+        }
+        private void supprimerLigne(string path, string ligne)
+        {
+            string texte = null;
+            string ligneActuelle = null;
+            StreamReader sr = new StreamReader(path);
+            // Ouverture du fichier
+            while ((sr.Peek() != -1))
+            {
+                ligneActuelle = sr.ReadLine();
+                if (!(ligneActuelle == ligne))
+                {
+                    texte = (texte
+                                + (ligneActuelle + "\r\n"));
+                }
+            }
+            sr.Close();
+            StreamWriter sr2 = new StreamWriter(path);
+            sr2.Write(texte);
+            sr2.Close();
         }
     }
 }
