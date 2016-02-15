@@ -34,6 +34,7 @@
             this.Modifier = new System.Windows.Forms.Button();
             this.Retour = new System.Windows.Forms.Button();
             this.Ajouter = new System.Windows.Forms.Button();
+            this.Freeze = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox1
@@ -95,11 +96,22 @@
             this.Ajouter.UseVisualStyleBackColor = true;
             this.Ajouter.Click += new System.EventHandler(this.Ajouter_Click);
             // 
+            // Freeze
+            // 
+            this.Freeze.Location = new System.Drawing.Point(23, 206);
+            this.Freeze.Name = "Freeze";
+            this.Freeze.Size = new System.Drawing.Size(75, 23);
+            this.Freeze.TabIndex = 6;
+            this.Freeze.Text = "Freeze";
+            this.Freeze.UseVisualStyleBackColor = true;
+            this.Freeze.Click += new System.EventHandler(this.Freeze_Click);
+            // 
             // AdminSup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 262);
+            this.Controls.Add(this.Freeze);
             this.Controls.Add(this.Ajouter);
             this.Controls.Add(this.Retour);
             this.Controls.Add(this.Modifier);
@@ -121,5 +133,6 @@
         private System.Windows.Forms.Button Modifier;
         private System.Windows.Forms.Button Retour;
         private System.Windows.Forms.Button Ajouter;
+        private System.Windows.Forms.Button Freeze;
     }
 }

@@ -27,7 +27,7 @@ namespace WindowsFormsApplication1
             Compte compteaModif = admin.GetcompteAmodifier();
             string pseudo = Compte.Text;
             string mdp = Password.Text;
-            Maliste.modifierLigne(@"C:\Users\Da\Desktop\Cours\Git\bin\Debug\Compte.txt",compteaModif.GetNum()+" "+compteaModif.GetNom()+" "+compteaModif.GetPass(),compteaModif.GetNum()+" "+pseudo+" "+mdp);
+            Maliste.modifierLigne(@"C:\Users\Da\Desktop\Cours\Git\bin\Debug\Compte.txt",compteaModif.GetNum()+" "+compteaModif.GetNom()+" "+compteaModif.GetPass()+" "+compteaModif.Getstatus(),compteaModif.GetNum()+" "+pseudo+" "+mdp+" "+compteaModif.Getstatus());
             System.Threading.Thread monthread = new System.Threading.Thread(new System.Threading.ThreadStart(AdminSupr));
             monthread.Start();
             this.Close();

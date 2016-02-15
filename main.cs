@@ -27,9 +27,9 @@ namespace WindowsFormsApplication1
         public void Setcompte(string Login, string MDP)
         {
             int i = NumCompte() + 1;
-            Compte c1 = new Compte(i, Login, MDP);
+            Compte c1 = new Compte(i, Login, MDP,"None");
             compte.Add(c1);
-            File.AppendAllText(@"C:\Users\Da\Desktop\Cours\Git\bin\Debug\Compte.txt", i + " " + Login + " " + MDP+ Environment.NewLine);
+            File.AppendAllText(@"C:\Users\Da\Desktop\Cours\Git\bin\Debug\Compte.txt", i + " " + Login + " " + MDP+" "+"None"+ Environment.NewLine);
             
             
         }
@@ -62,17 +62,33 @@ namespace WindowsFormsApplication1
                 }
                 if (connection == 1)
                 {
-                    SetCurrent(Login);
-                    System.Threading.Thread monthread2 = new System.Threading.Thread(new System.Threading.ThreadStart(ouvrirAccount));
-                    monthread2.Start();
-                    this.Close();
+                    foreach(Compte Uncompte in compte)
+                    {
+                        if (Uncompte.GetNom()== Login)
+                        {
+                            if(Uncompte.Getstatus()== "Freeze")
+                            {
+                                MessageBox.Show("Compte Freeze", "Erreur03", MessageBoxButtons.RetryCancel, MessageBoxIcon.Hand);
+                                break;
+                            }
+                            if(Uncompte.Getstatus() == "None")
+                            {
+                                SetCurrent(Login);
+                                System.Threading.Thread monthread2 = new System.Threading.Thread(new System.Threading.ThreadStart(ouvrirAccount));
+                                monthread2.Start();
+                                this.Close();
+                                break;
+                            }
+                        }
+                    }
+                   
                 }
                 if (connection == 2)
                 {
-                    System.Threading.Thread monthread = new System.Threading.Thread(new System.Threading.ThreadStart(Admin));
+                    System.Threading.Thread monthread = new System.Threading.Thread(new System.Threading.ThreadStart(AdminSup));
                     monthread.Start();
                     this.Close();
-                } 
+            } 
                 
 
         }
@@ -144,9 +160,9 @@ namespace WindowsFormsApplication1
         {
             Application.Run(new Account());
         }
-        public void Admin()
+        private void AdminSup()
         {
-            Application.Run(new Admin());
+            Application.Run(new AdminSup());
         }
         public List<Compte> getCompte()
         {
@@ -161,23 +177,31 @@ namespace WindowsFormsApplication1
             string texteFinal = null;
             StreamReader sr = new StreamReader(path);
             string ligneEnCoursDeLecture = null; 
-            while ((sr.Peek() != -1))
+            while (sr.EndOfStream ==false)
             {
                 ligneEnCoursDeLecture = sr.ReadLine();
-                if ((ligneEnCoursDeLecture == ligneToModif))
+                if (ligneEnCoursDeLecture.Length > 1)
                 {
-                    texteFinal = (texteFinal
-                                + (ligneFinale));
-                }
-                else
-                {
-                    texteFinal = (texteFinal
-                                + (ligneEnCoursDeLecture + "\r\n"));
+                   
+                   if (ligneEnCoursDeLecture == ligneToModif)
+                   {
+                        if(compte.Last().AffichCompte() != ligneEnCoursDeLecture)
+                            texteFinal = (texteFinal + ligneFinale + "\r\n");
+                        else
+                            texteFinal = (texteFinal + ligneFinale);
+                    }
+                   else
+                   {
+                        if (compte.Last().AffichCompte() != ligneEnCoursDeLecture)
+                            texteFinal = (texteFinal + ligneEnCoursDeLecture + "\r\n");
+                        else
+                            texteFinal = (texteFinal + ligneEnCoursDeLecture );
+                    }
                 }
             }
             sr.Close();
             StreamWriter sr2 = new StreamWriter(path);
-            sr2.WriteLine(texteFinal);
+            sr2.Write(texteFinal);
             sr2.Close();
         }
         public void LoadPerso()
@@ -189,7 +213,7 @@ namespace WindowsFormsApplication1
                 foreach (string line in File.ReadAllLines(@"C:\Users\Da\Desktop\Cours\Git\bin\Debug\Compte.txt"))
                 {
                     String[] champs = line.Split(sep);
-                    Compte c1 = new Compte(int.Parse(champs[0]), champs[1], champs[2]);
+                    Compte c1 = new Compte(int.Parse(champs[0]), champs[1], champs[2], champs[3]);
                     compte.Add(c1);
                 }
             }
@@ -199,8 +223,13 @@ namespace WindowsFormsApplication1
             }
         }
         private static int NumCompte()
-        {
+        { 
+            if (compte.Count() == 0)
+            {
+                return -1;
+            }
             return compte.Last().GetNum();
         }
-    }
+        
+ }
 }

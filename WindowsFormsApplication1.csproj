@@ -64,12 +64,6 @@
     <Compile Include="ADMIN\AdminSup.Designer.cs">
       <DependentUpon>AdminSup.cs</DependentUpon>
     </Compile>
-    <Compile Include="ADMIN\Admin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ADMIN\Admin.Designer.cs">
-      <DependentUpon>Admin.cs</DependentUpon>
-    </Compile>
     <Compile Include="Compte.cs" />
     <Compile Include="CreatCompte.cs">
       <SubType>Form</SubType>
@@ -90,9 +84,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ADMIN\AdminModifAccount.resx">
       <DependentUpon>AdminModifAccount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ADMIN\Admin.resx">
-      <DependentUpon>Admin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ADMIN\AdminSup.resx">
       <DependentUpon>AdminSup.cs</DependentUpon>

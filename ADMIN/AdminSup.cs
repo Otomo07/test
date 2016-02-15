@@ -14,7 +14,7 @@ namespace WindowsFormsApplication1
     
     public partial class AdminSup : Form
     {
-        public static Compte compteAmodifier = new Compte(0, "", "");
+        public static Compte compteAmodifier = new Compte(0, "", "","");
         private static main monMain = new main();
         private List<Compte> compte = new List<Compte>();
 
@@ -88,7 +88,6 @@ namespace WindowsFormsApplication1
             string texte = null;
             string ligneActuelle = null;
             StreamReader sr = new StreamReader(path);
-            // Ouverture du fichier
             while ((sr.Peek() != -1))
             {
                 ligneActuelle = sr.ReadLine();
@@ -114,6 +113,23 @@ namespace WindowsFormsApplication1
         private void Ajout()
         {
             Application.Run(new CreatCompte());
+        }
+
+        private void Freeze_Click(object sender, EventArgs e)
+        {
+            Compte Lecompte = (Compte)listBox1.SelectedItem;
+            string status = Lecompte.Getstatus();
+            if (status == "None")
+            {
+                Lecompte.SetStatus("Freeze");
+                monMain.modifierLigne(@"C:\Users\Da\Desktop\Cours\Git\bin\Debug\Compte.txt", Lecompte.GetNum() + " " + Lecompte.GetNom() + " " + Lecompte.GetPass() + " " + "None", Lecompte.GetNum() + " " + Lecompte.GetNom() + " " + Lecompte.GetPass() + " " + "Freeze");
+            }
+            else
+            {
+                Lecompte.SetStatus("None");
+                monMain.modifierLigne(@"C:\Users\Da\Desktop\Cours\Git\bin\Debug\Compte.txt", Lecompte.GetNum() + " " + Lecompte.GetNom() + " " + Lecompte.GetPass() + " " + "Freeze", Lecompte.GetNum() + " " + Lecompte.GetNom() + " " + Lecompte.GetPass() + " " + "None");
+            }
+            LoadPerso();
         }
     }
 }

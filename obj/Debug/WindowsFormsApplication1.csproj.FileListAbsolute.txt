@@ -15,7 +15,6 @@ C:\Users\Da\Desktop\Cours\Git\bin\Debug\WindowsFormsApplication1.exe.config
 C:\Users\Da\Desktop\Cours\Git\bin\Debug\WindowsFormsApplication1.exe
 C:\Users\Da\Desktop\Cours\Git\bin\Debug\WindowsFormsApplication1.pdb
 C:\Users\Da\Desktop\Cours\Git\obj\Debug\WindowsFormsApplication1.Account.resources
-C:\Users\Da\Desktop\Cours\Git\obj\Debug\WindowsFormsApplication1.Admin.resources
 C:\Users\Da\Desktop\Cours\Git\obj\Debug\WindowsFormsApplication1.AdminSup.resources
 C:\Users\Da\Desktop\Cours\Git\obj\Debug\WindowsFormsApplication1.CreatCompte.resources
 C:\Users\Da\Desktop\Cours\Git\obj\Debug\WindowsFormsApplication1.main.resources

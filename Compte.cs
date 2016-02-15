@@ -11,11 +11,13 @@ namespace WindowsFormsApplication1
         private int numCompte;
         private string nom_compte;
         private string pass_compt;
-        public Compte(int numero, string nom, string pass)
+        private string status;
+        public Compte(int numero, string nom, string pass, string statut)
         {
             numCompte = numero;
             nom_compte = nom;
             pass_compt = pass;
+            status = statut;
         }
         public int GetNum()
         {
@@ -44,7 +46,19 @@ namespace WindowsFormsApplication1
 
         public override string ToString()
         {
-            return (numCompte + " " + nom_compte + " " + pass_compt);
+            return (numCompte + " " + nom_compte + " " + pass_compt+" "+status);
+        }
+        public string Getstatus()
+        {
+            return status;
+        }
+        public void SetStatus(string stats)
+        {
+            status = stats;
+        }
+        public string AffichCompte()
+        {
+            return (numCompte + " " + nom_compte + " " + pass_compt + " " + status);
         }
 
     }
